@@ -86,24 +86,24 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_RTC_Init();
-  MX_ADC1_Init();
-  MX_FMC_Init();
-  MX_LTDC_Init();
-  MX_USART1_UART_Init();
-//  MX_LWIP_Init();
-  /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(GPIOG, PWR_KEY_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(GPIOA, ETH_RST_Pin, GPIO_PIN_RESET);
   HAL_Delay(100);
   HAL_GPIO_WritePin(GPIOA, ETH_RST_Pin, GPIO_PIN_SET);
   HAL_Delay(100);
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  
+  MX_RTC_Init();
+  MX_ADC1_Init();
+  MX_FMC_Init();
+  MX_LTDC_Init();
+  MX_USART1_UART_Init();
   MX_LWIP_Init();
+  /* USER CODE BEGIN 2 */
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
